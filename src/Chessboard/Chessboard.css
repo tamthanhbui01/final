@@ -1,0 +1,17 @@
+.board {
+  display: inline-block;
+  max-width: 90vh;
+  max-width: 90vh;
+}
+.row {
+  font-size: 0;
+  line-height: 0;
+}
+.cell {
+  display: inline-block;
+  min-width: 5px;
+  min-height: 5px;
+}
+.black {
+  background-color: black;
+}

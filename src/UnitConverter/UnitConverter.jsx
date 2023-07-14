@@ -7,7 +7,8 @@ function App() {
 
   return (
     <div style={{ margin: 20 }}>
-      <Space direction="vertical">
+      <div style={{fontSize: 24, fontWeight: "bold" }}>Unit Converter</div>
+      <Space direction="vertical" style={{marginTop:12}}>
         <Text>From: VND </Text>
         <InputNumber
           style={{

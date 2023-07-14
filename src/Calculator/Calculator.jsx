@@ -9,7 +9,6 @@ function Calculator() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [currentOp, setCurrentOp] = useState("");
-
   const handleNumber = (e) => {
     setInput(input + e);
   };
@@ -44,12 +43,30 @@ function Calculator() {
     }
   };
   const equalClick = () => {
-    arr.push(+input);
-    let result = evaluate();
-    arr.length = 0;
-    arr.push(+result);
-    setInput("");
-    setResult(+result);
+    if (arr.length === 1) {
+      if (result === "" && input === "") {
+        return;
+      } else if ((result !== "") & (input === "")) {
+        switch (currentOp) {
+          case "+":
+            return +input + +result;
+          case "-":
+            return +input - +result;
+          case "x":
+            return +input * +result;
+          case "/":
+            return +input / +result;
+        }
+      } else {
+        arr.push(+input);
+        let result = evaluate();
+        arr.length = 0;
+        arr.push(+result);
+        setResult(+result);
+      }
+    } else if (arr.length === 0) {
+      return;
+    }
   };
   return (
     <div style={{ margin: 20 }}>

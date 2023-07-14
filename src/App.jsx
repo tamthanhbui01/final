@@ -39,7 +39,7 @@ function App() {
             collapsed={collapsed}
             style={{ background: "#2b3a4a", width: 150 }}
           >
-            <div
+            {!collapsed?(<div
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -56,7 +56,19 @@ function App() {
               >
                 Super
               </Text>
+            </div>):(
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "64px",
+              maxWidth: 200,
+              gap: 8,
+              background: "#52c41a",
+            }}>
+            <img width="40" height="40" src={SURL} />
             </div>
+            )}
             <Menu
               style={{ marginTop: "10px", background: "transparent" }}
               mode="inline"

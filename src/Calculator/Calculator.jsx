@@ -1,5 +1,4 @@
 import { useState } from "react";
-import backgroundJPG from "../../public/icon/CalcBG.jpg";
 import { Button } from "antd";
 import backURL from "../../public/icon/back.svg";
 import divideURL from "../../public/icon/divide.svg";
@@ -15,6 +14,7 @@ function Calculator() {
     setInput(input + e);
   };
   const handleOperator = (e) => {
+    setCurrentOp(e);
     if (arr.length === 0) {
       setCurrentOp(e);
       arr.push(+input);
@@ -52,15 +52,8 @@ function Calculator() {
     setResult(+result);
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        backgroundImage: `url("${backgroundJPG}")`,
-      }}
-    >
+    <div style={{ margin: 20 }}>
+      <div style={{ fontSize: 24, fontWeight: "bold" }}>Calculator</div>
       <div
         className="Calculator"
         style={{
@@ -69,6 +62,7 @@ function Calculator() {
           width: 300,
           height: 370,
           background: "gray",
+          marginTop: 12,
         }}
       >
         <div className="Display">
@@ -80,8 +74,8 @@ function Calculator() {
               backgroundColor: "white",
               marginLeft: 10,
               marginTop: 10,
-              color:'orange',
-              fontWeight:'bold'
+              color: "orange",
+              fontWeight: "bold",
             }}
           >
             {input}
@@ -92,11 +86,11 @@ function Calculator() {
               width: 280,
               height: 50,
               background: "white",
-              color: "red",
+              color: "green",
               marginLeft: 10,
               alignItems: "end",
               textAlign: "right",
-              fontWeight:'bolder'
+              fontWeight: "bolder",
             }}
           >
             {result}

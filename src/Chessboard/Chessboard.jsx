@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Chessboard.css";
 import Cell from "./Cell";
-import { ColorPicker, InputNumber, Space,Typography } from "antd";
-const{Text} = Typography
+import { ColorPicker, InputNumber, Space, Typography } from "antd";
+const { Text } = Typography;
 function App() {
   const [chessBoard, setChessBoard] = useState([]);
   const [size, setSize] = useState(8);
@@ -25,32 +25,34 @@ function App() {
     setColor({ colorOdd: tempEven, colorEven: tempOdd });
   }
   return (
-    <div style={{backgroundColor:"rgba(75, 72, 71,0.8)", minWidth:'100%', minHeight:'100%' }}>
-    <Space direction="vertical" style={{alignItems:'center', display:'flex', justifyContent:'center'}}>
-      <Space style={{marginTop:"8px"}}> 
-        <Text style={{fontWeight:"bolder", color:'white'}}>Size:</Text>
-      <InputNumber
-        min="0"
-        max="50"
-        value={size}
-        onChange={(e) => {
-          setSize(e);
-        }}
-      />
+    <div style={{ margin: 20 }}>
+      <div style={{ fontSize: 24, fontWeight: "bold" }}>Chessboard</div>
+      <Space style={{ marginTop: 12 }}>
+        <Text style={{ fontWeight: "bolder" }}>Size:</Text>
+        <InputNumber
+          min="0"
+          max="50"
+          value={size}
+          onChange={(e) => {
+            setSize(e);
+          }}
+        />
       </Space>
       <div>
-      <Space>
-      <ColorPicker
-        value={color.colorOdd}
-        onChange={(e) => setColor({ ...color, colorOdd: e.toHexString() })}
-      />
-      <ColorPicker
-        value={color.colorEven}
-        onChange={(e) => setColor({ ...color, colorEven: e.toHexString() })}
-      />
-      </Space>
+        <Space>
+          <ColorPicker
+            className="ColorPickerChessboard"
+            value={color.colorOdd}
+            onChange={(e) => setColor({ ...color, colorOdd: e.toHexString() })}
+          />
+          <ColorPicker
+            className="ColorPickerChessboard"
+            value={color.colorEven}
+            onChange={(e) => setColor({ ...color, colorEven: e.toHexString() })}
+          />
+        </Space>
       </div>
-      <div className="board" onClick={changeColor}>
+      <div className="board" onClick={changeColor} style={{ marginTop: 12 }}>
         {chessBoard.map((row, rowIdx) => (
           <div key={rowIdx} className="row ">
             {row.map((_, cellIdx) => (
@@ -66,7 +68,6 @@ function App() {
           </div>
         ))}
       </div>
-    </Space>
     </div>
   );
 }

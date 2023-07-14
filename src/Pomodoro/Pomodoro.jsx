@@ -95,10 +95,10 @@ function Pomodoro() {
   return (
     <Layout
       style={{
-        display: "flex",
-        minWidth: "100%",
-        height: "100%",
+        width: "50%",
+        minHeight: "80%",
         overflow: "auto",
+        margin: 20,
         backgroundColor: isCheck
           ? currentStatus === "working"
             ? !isPause
@@ -277,6 +277,7 @@ function Pomodoro() {
                   setCurrentStatus("working");
                   setWorkingTime(defaultWorkingTime);
                   setIsPause(true);
+                  setRestingTime(defaultRestingTime);
                 }
               }}
             >
@@ -296,6 +297,7 @@ function Pomodoro() {
                   setCurrentStatus("resting");
                   setRestingTime(defaultRestingTime);
                   setIsPause(true);
+                  setWorkingTime(defaultWorkingTime);
                 }
               }}
             >
@@ -422,7 +424,7 @@ function Pomodoro() {
               marginTop: "8px",
               backgroundColor: "white",
               borderRadius: "4px",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
             key={idx}
             onClick={() => {
